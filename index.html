@@ -1,31 +1,795 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Marketing Money</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      margin: 0;
-      background: #f5f5f5;
-    }
-    .container {
-      text-align: center;
-      padding: 2rem;
-    }
-    h1 { color: #333; }
-    p  { color: #666; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wildflower Tested — Outdoor & Home Gear Reviews</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --rose:       #C9747A;
+    --rose-dark:  #a05860;
+    --rose-light: #F7EAEB;
+    --rose-mid:   #E8C4C7;
+    --sage:       #7A9E87;
+    --sage-dark:  #567566;
+    --sage-light: #EDF4EF;
+    --gold:       #C4A35A;
+    --gold-light: #F7F1E3;
+    --cream:      #FAF7F2;
+    --warm-white: #FFFFFF;
+    --ink:        #2E2926;
+    --ink-mid:    #5C5450;
+    --ink-muted:  #9A928E;
+    --border:     rgba(46,41,38,0.1);
+  }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.6;
+  }
+
+  a { text-decoration: none; color: inherit; }
+
+  nav {
+    background: var(--warm-white);
+    border-bottom: 1px solid var(--border);
+    padding: 0 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--ink);
+  }
+
+  .logo span { color: var(--rose); font-style: italic; }
+
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+
+  .nav-links a {
+    color: var(--ink-mid);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--rose); }
+
+  .nav-cta {
+    background: var(--rose);
+    color: var(--warm-white) !important;
+    padding: 9px 20px;
+    border-radius: 30px;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--rose-dark) !important; }
+
+  .hero {
+    background: var(--rose-light);
+    min-height: 540px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 320px; height: 320px;
+    border-radius: 50%;
+    background: var(--rose-mid);
+    opacity: 0.25;
+    pointer-events: none;
+  }
+
+  .hero-text {
+    padding: 5rem 3rem 5rem 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 2;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--sage-dark);
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 28px; height: 1px;
+    background: var(--sage-dark);
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(48px, 5.5vw, 76px);
+    font-weight: 600;
+    line-height: 1.05;
+    color: var(--ink);
+    margin-bottom: 1.25rem;
+  }
+
+  .hero h1 em { font-style: italic; color: var(--rose); }
+
+  .hero-sub {
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--ink-mid);
+    max-width: 400px;
+    margin-bottom: 2.25rem;
+    line-height: 1.8;
+  }
+
+  .hero-buttons { display: flex; gap: 14px; flex-wrap: wrap; }
+
+  .btn-primary {
+    background: var(--rose);
+    color: var(--warm-white);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 14px 30px;
+    border-radius: 30px;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-block;
+  }
+
+  .btn-primary:hover { background: var(--rose-dark); transform: translateY(-1px); }
+
+  .btn-ghost {
+    border: 1.5px solid var(--ink-muted);
+    color: var(--ink-mid);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 14px 30px;
+    border-radius: 30px;
+    transition: border-color 0.2s, color 0.2s;
+    display: inline-block;
+  }
+
+  .btn-ghost:hover { border-color: var(--rose); color: var(--rose); }
+
+  .hero-image-panel {
+    position: relative;
+    overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .hero-image-bg {
+    width: 100%; height: 100%;
+    background: linear-gradient(135deg, #E8C4C7 0%, #C9A8AB 100%);
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 12px; opacity: 0.6;
+  }
+
+  .hero-image-bg span { font-size: 90px; }
+
+  .hero-image-bg p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px; letter-spacing: 4px;
+    color: var(--ink-mid); text-transform: uppercase;
+  }
+
+  .hero-tag {
+    position: absolute;
+    bottom: 2rem; left: 2rem;
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    border-radius: 30px;
+    padding: 8px 18px;
+    display: flex; align-items: center; gap: 8px;
+    font-size: 12px; font-weight: 500; letter-spacing: 1px;
+    color: var(--ink-mid); text-transform: uppercase;
+  }
+
+  .hero-tag-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--rose); }
+
+  .ticker-bar {
+    background: var(--sage);
+    padding: 11px 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .ticker-inner {
+    display: inline-flex;
+    gap: 3rem;
+    animation: ticker 26s linear infinite;
+  }
+
+  .ticker-item {
+    font-size: 12px; font-weight: 500;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: rgba(255,255,255,0.9);
+    display: flex; align-items: center; gap: 12px;
+  }
+
+  .ticker-divider {
+    width: 4px; height: 4px; border-radius: 50%;
+    background: rgba(255,255,255,0.4); flex-shrink: 0;
+  }
+
+  @keyframes ticker {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .section-header {
+    display: flex; align-items: flex-end;
+    justify-content: space-between; margin-bottom: 2rem;
+  }
+
+  .section-label {
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: var(--sage-dark); margin-bottom: 8px;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 38px; font-weight: 600;
+    line-height: 1.1; color: var(--ink);
+  }
+
+  .see-all {
+    font-size: 12px; font-weight: 500; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--rose);
+    display: flex; align-items: center; gap: 6px;
+    transition: gap 0.2s; white-space: nowrap;
+  }
+
+  .see-all:hover { gap: 10px; }
+
+  .categories-section { padding: 4rem 4rem 3rem; }
+
+  .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+  }
+
+  .cat-card {
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.75rem 1.5rem;
+    display: flex; flex-direction: column; gap: 10px;
+    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+  }
+
+  .cat-card:hover {
+    border-color: var(--rose-mid);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(201,116,122,0.1);
+  }
+
+  .cat-icon {
+    width: 46px; height: 46px;
+    background: var(--rose-light);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+  }
+
+  .cat-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px; font-weight: 600;
+    color: var(--ink); line-height: 1.2;
+  }
+
+  .cat-count {
+    font-size: 12px; font-weight: 500;
+    letter-spacing: 1px; color: var(--ink-muted);
+    text-transform: uppercase;
+  }
+
+  .reviews-section { padding: 3rem 4rem; }
+
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 18px;
+  }
+
+  .review-card {
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    border-radius: 12px; overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer; display: flex; flex-direction: column;
+  }
+
+  .review-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 28px rgba(46,41,38,0.08);
+  }
+
+  .review-image { width: 100%; overflow: hidden; }
+  .review-card.featured .review-image { height: 280px; }
+  .review-card:not(.featured) .review-image { height: 160px; }
+
+  .review-image-placeholder {
+    width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 52px; background: var(--rose-light);
+  }
+
+  .review-card:not(.featured) .review-image-placeholder {
+    font-size: 36px; background: var(--sage-light);
+  }
+
+  .review-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
+
+  .review-category {
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: var(--rose); margin-bottom: 10px;
+  }
+
+  .review-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px; font-weight: 600;
+    line-height: 1.25; color: var(--ink); margin-bottom: 10px;
+  }
+
+  .review-card.featured .review-title { font-size: 26px; }
+
+  .review-excerpt {
+    font-size: 14px; font-weight: 300;
+    color: var(--ink-mid); line-height: 1.7; flex: 1;
+  }
+
+  .review-meta {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid var(--border);
+  }
+
+  .stars { color: var(--gold); font-size: 13px; letter-spacing: 2px; }
+
+  .affiliate-badge {
+    background: var(--gold-light); color: var(--gold);
+    font-size: 10px; font-weight: 600;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 4px 10px; border-radius: 20px;
+    border: 1px solid rgba(196,163,90,0.3);
+  }
+
+  .picks-section {
+    padding: 4rem; background: var(--ink);
+    position: relative; overflow: hidden;
+  }
+
+  .picks-section::before {
+    content: '';
+    position: absolute; top: -100px; right: -100px;
+    width: 400px; height: 400px; border-radius: 50%;
+    background: var(--rose); opacity: 0.06; pointer-events: none;
+  }
+
+  .picks-section .section-label { color: var(--rose); }
+  .picks-section .section-title { color: var(--warm-white); }
+
+  .picks-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 16px; margin-top: 2rem;
+  }
+
+  .pick-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px; padding: 1.75rem 1.5rem;
+    transition: background 0.2s, border-color 0.2s; cursor: pointer;
+  }
+
+  .pick-card:hover { background: rgba(255,255,255,0.08); border-color: var(--rose-mid); }
+
+  .pick-rank {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 56px; font-style: italic;
+    color: var(--rose); line-height: 1;
+    margin-bottom: 10px; opacity: 0.7;
+  }
+
+  .pick-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px; font-weight: 600;
+    color: var(--warm-white); margin-bottom: 6px; line-height: 1.2;
+  }
+
+  .pick-desc {
+    font-size: 13px; font-weight: 300;
+    color: rgba(255,255,255,0.5); line-height: 1.6;
+  }
+
+  .pick-price {
+    margin-top: 1.25rem; font-size: 13px; font-weight: 600;
+    letter-spacing: 1px; color: var(--gold); text-transform: uppercase;
+  }
+
+  .pick-cta {
+    display: inline-block; margin-top: 10px;
+    background: var(--rose); color: var(--warm-white);
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 2px; text-transform: uppercase;
+    padding: 9px 18px; border-radius: 30px;
+    transition: background 0.2s;
+  }
+
+  .pick-cta:hover { background: var(--rose-dark); }
+
+  .trust-bar {
+    background: var(--sage-light);
+    border-top: 1px solid rgba(122,158,135,0.2);
+    border-bottom: 1px solid rgba(122,158,135,0.2);
+    padding: 2rem 4rem;
+    display: flex; align-items: center;
+    justify-content: space-around; gap: 2rem; flex-wrap: wrap;
+  }
+
+  .trust-item { display: flex; align-items: center; gap: 14px; }
+
+  .trust-icon-wrap {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: var(--warm-white);
+    border: 1px solid rgba(122,158,135,0.3);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; flex-shrink: 0;
+  }
+
+  .trust-label { font-size: 13px; font-weight: 600; letter-spacing: 0.5px; color: var(--ink); }
+  .trust-sub { font-size: 12px; color: var(--ink-muted); margin-top: 2px; }
+
+  .newsletter-section {
+    padding: 5rem 4rem; background: var(--rose-light);
+    display: flex; align-items: center;
+    justify-content: space-between; gap: 3rem;
+    position: relative; overflow: hidden;
+  }
+
+  .newsletter-section::after {
+    content: '';
+    position: absolute; bottom: -80px; right: 10%;
+    width: 260px; height: 260px; border-radius: 50%;
+    background: var(--rose-mid); opacity: 0.3; pointer-events: none;
+  }
+
+  .newsletter-text h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 46px; font-weight: 600;
+    color: var(--ink); line-height: 1.1; margin-bottom: 10px;
+  }
+
+  .newsletter-text h2 em { font-style: italic; color: var(--rose); }
+
+  .newsletter-text p {
+    font-size: 14px; font-weight: 300;
+    color: var(--ink-mid); max-width: 360px;
+  }
+
+  .newsletter-form {
+    display: flex; gap: 0;
+    max-width: 440px; width: 100%;
+    flex-shrink: 0; z-index: 1;
+  }
+
+  .newsletter-form input {
+    flex: 1; padding: 14px 20px;
+    font-family: 'Jost', sans-serif; font-size: 14px;
+    border: 1.5px solid var(--rose-mid); border-right: none;
+    border-radius: 30px 0 0 30px; outline: none;
+    background: var(--warm-white); color: var(--ink);
+  }
+
+  .newsletter-form input::placeholder { color: var(--ink-muted); }
+
+  .newsletter-form button {
+    background: var(--rose); color: var(--warm-white);
+    font-family: 'Jost', sans-serif; font-size: 12px;
+    font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+    padding: 14px 24px; border: none;
+    border-radius: 0 30px 30px 0; cursor: pointer;
+    white-space: nowrap; transition: background 0.2s;
+  }
+
+  .newsletter-form button:hover { background: var(--rose-dark); }
+
+  footer { background: var(--ink); color: rgba(255,255,255,0.5); padding: 3.5rem 4rem 2rem; }
+
+  .footer-grid {
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 3rem; margin-bottom: 3rem;
+  }
+
+  .footer-brand .logo { display: block; margin-bottom: 1rem; color: var(--warm-white); }
+
+  .footer-brand p { font-size: 13px; font-weight: 300; line-height: 1.8; max-width: 260px; }
+
+  .footer-col h4 {
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 2.5px; text-transform: uppercase;
+    color: var(--rose-mid); margin-bottom: 1.25rem;
+  }
+
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+
+  .footer-col a {
+    font-size: 13px; font-weight: 300;
+    color: rgba(255,255,255,0.45); transition: color 0.2s;
+  }
+
+  .footer-col a:hover { color: var(--rose-mid); }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.07);
+    padding-top: 1.5rem;
+    display: flex; align-items: flex-start;
+    justify-content: space-between; gap: 2rem;
+    font-size: 12px; flex-wrap: wrap;
+  }
+
+  .disclosure {
+    font-size: 11px; font-weight: 300;
+    color: rgba(255,255,255,0.28); max-width: 580px; line-height: 1.7;
+  }
+
+  @media (max-width: 960px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-image-panel { display: none; }
+    .categories-grid { grid-template-columns: repeat(2, 1fr); }
+    .reviews-grid { grid-template-columns: 1fr; }
+    .picks-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .newsletter-section { flex-direction: column; }
+    .nav-links { display: none; }
+  }
+
+  @media (max-width: 600px) {
+    .categories-section, .reviews-section, .picks-section,
+    .newsletter-section, footer { padding-left: 1.5rem; padding-right: 1.5rem; }
+    .hero-text { padding: 3rem 1.5rem; }
+    .trust-bar { padding: 1.5rem; }
+    .picks-grid, .categories-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; }
+  }
+</style>
 </head>
 <body>
-  <div class="container">
-    <h1>Marketing Money</h1>
-    <p>Your affiliate marketing site is live. Replace this file with your actual content.</p>
+
+<nav>
+  <div class="logo">Wildflower <span>Tested</span></div>
+  <ul class="nav-links">
+    <li><a href="#">ATVs & UTVs</a></li>
+    <li><a href="#">Home Goods</a></li>
+    <li><a href="#">Outdoor Gear</a></li>
+    <li><a href="#">Best Picks</a></li>
+    <li><a href="#" class="nav-cta">Shop Deals</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-text">
+    <p class="hero-eyebrow">Tested. Reviewed. Trusted.</p>
+    <h1>Gear Made for <em>Women Who Ride</em></h1>
+    <p class="hero-sub">Honest, hands-on reviews of ATVs, side-by-sides, home goods, and outdoor gear — written by women who actually use them.</p>
+    <div class="hero-buttons">
+      <a href="#" class="btn-primary">See Top Picks</a>
+      <a href="#" class="btn-ghost">Browse Reviews</a>
+    </div>
   </div>
+  <div class="hero-image-panel">
+    <div class="hero-image-bg">
+      <span>🌿</span>
+      <p>Your Hero Photo Here</p>
+    </div>
+    <div class="hero-tag">
+      <div class="hero-tag-dot"></div>
+      New: 2025 Side-By-Side Shootout
+    </div>
+  </div>
+</section>
+
+<div class="ticker-bar">
+  <div class="ticker-inner">
+    <span class="ticker-item"><span class="ticker-divider"></span>Best ATV Helmets 2025</span>
+    <span class="ticker-item"><span class="ticker-divider"></span>Polaris Ranger vs Can-Am Defender</span>
+    <span class="ticker-item"><span class="ticker-divider"></span>Top 10 Outdoor Coolers</span>
+    <span class="ticker-item"><span class="ticker-divider"></span>Best Smart Home Cameras</span>
+    <span class="ticker-item"><span class="ticker-divider"></span>UTV Winch Buying Guide</span>
+    <span class="ticker-item"><span class="ticker-divider"></span>Camping Gear Essentials</span>
+    <span class="ticker-item"><span class="ticker-divider"></span>Best ATV Helmets 2025</span>
+    <span class="ticker-item"><span class="ticker-divider"></span>Polaris Ranger vs Can-Am Defender</span>
+    <span class="ticker-item"><span class="ticker-divider"></span>Top 10 Outdoor Coolers</span>
+    <span class="ticker-item"><span class="ticker-divider"></span>Best Smart Home Cameras</span>
+    <span class="ticker-item"><span class="ticker-divider"></span>UTV Winch Buying Guide</span>
+    <span class="ticker-item"><span class="ticker-divider"></span>Camping Gear Essentials</span>
+  </div>
+</div>
+
+<section class="categories-section">
+  <div class="section-header">
+    <div>
+      <p class="section-label">Browse by Category</p>
+      <h2 class="section-title">What Are You Looking For?</h2>
+    </div>
+    <a href="#" class="see-all">View All →</a>
+  </div>
+  <div class="categories-grid">
+    <a href="#" class="cat-card"><div class="cat-icon">🏍️</div><div class="cat-name">ATVs & 4-Wheelers</div><div class="cat-count">47 Reviews</div></a>
+    <a href="#" class="cat-card"><div class="cat-icon">🚜</div><div class="cat-name">Side-By-Sides & UTVs</div><div class="cat-count">38 Reviews</div></a>
+    <a href="#" class="cat-card"><div class="cat-icon">🏕️</div><div class="cat-name">Camping & Outdoor</div><div class="cat-count">61 Reviews</div></a>
+    <a href="#" class="cat-card"><div class="cat-icon">🛡️</div><div class="cat-name">Safety & Protective Gear</div><div class="cat-count">29 Reviews</div></a>
+    <a href="#" class="cat-card"><div class="cat-icon">🏠</div><div class="cat-name">Home & Kitchen</div><div class="cat-count">53 Reviews</div></a>
+    <a href="#" class="cat-card"><div class="cat-icon">🔧</div><div class="cat-name">Tools & Accessories</div><div class="cat-count">44 Reviews</div></a>
+    <a href="#" class="cat-card"><div class="cat-icon">📦</div><div class="cat-name">Storage & Organization</div><div class="cat-count">22 Reviews</div></a>
+    <a href="#" class="cat-card"><div class="cat-icon">🎯</div><div class="cat-name">Hunting & Fishing</div><div class="cat-count">35 Reviews</div></a>
+  </div>
+</section>
+
+<section class="reviews-section">
+  <div class="section-header">
+    <div>
+      <p class="section-label">Latest Reviews</p>
+      <h2 class="section-title">What We've Been Testing</h2>
+    </div>
+    <a href="#" class="see-all">All Reviews →</a>
+  </div>
+  <div class="reviews-grid">
+    <a href="#" class="review-card featured">
+      <div class="review-image"><div class="review-image-placeholder">🚜</div></div>
+      <div class="review-body">
+        <p class="review-category">Side-By-Sides</p>
+        <h3 class="review-title">2025 Can-Am Defender Max HD10: Full Field Test</h3>
+        <p class="review-excerpt">We put Can-Am's workhorse through 200+ miles of Oklahoma mud, rock, and open trail. Here's everything you need to know before you buy — including how it stacks up against the Polaris Ranger.</p>
+        <div class="review-meta"><span class="stars">★★★★★</span><span class="affiliate-badge">Amazon Link</span></div>
+      </div>
+    </a>
+    <a href="#" class="review-card">
+      <div class="review-image"><div class="review-image-placeholder">🏕️</div></div>
+      <div class="review-body">
+        <p class="review-category">Camping</p>
+        <h3 class="review-title">YETI Tundra 65 vs RTIC 65: Which Cooler Wins?</h3>
+        <p class="review-excerpt">A no-BS comparison. One costs twice as much — is it worth it?</p>
+        <div class="review-meta"><span class="stars">★★★★☆</span><span class="affiliate-badge">Amazon Link</span></div>
+      </div>
+    </a>
+    <a href="#" class="review-card">
+      <div class="review-image"><div class="review-image-placeholder">🔧</div></div>
+      <div class="review-body">
+        <p class="review-category">Tools & Gear</p>
+        <h3 class="review-title">Best UTV Winches Under $300</h3>
+        <p class="review-excerpt">Tested 7 winches so you don't have to. Our top pick will surprise you.</p>
+        <div class="review-meta"><span class="stars">★★★★★</span><span class="affiliate-badge">Cabela's Link</span></div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<section class="picks-section">
+  <div class="section-label">Handpicked for You</div>
+  <h2 class="section-title">Our Best Picks Right Now</h2>
+  <div class="picks-grid">
+    <div class="pick-card">
+      <div class="pick-rank">01</div>
+      <div class="pick-name">Polaris Ranger XP 1000</div>
+      <div class="pick-desc">Best overall UTV for work and play. Unmatched power and ride quality.</div>
+      <div class="pick-price">From $19,499</div>
+      <a href="#" class="pick-cta">Check Price →</a>
+    </div>
+    <div class="pick-card">
+      <div class="pick-rank">02</div>
+      <div class="pick-name">Traeger Pro 780 Grill</div>
+      <div class="pick-desc">Best pellet grill for outdoor enthusiasts. WiFi-enabled, huge cook space.</div>
+      <div class="pick-price">From $799</div>
+      <a href="#" class="pick-cta">Check Price →</a>
+    </div>
+    <div class="pick-card">
+      <div class="pick-rank">03</div>
+      <div class="pick-name">YETI Tundra 45 Cooler</div>
+      <div class="pick-desc">Keeps ice 5+ days. Worth every penny for serious outdoorswomen.</div>
+      <div class="pick-price">From $325</div>
+      <a href="#" class="pick-cta">Check Price →</a>
+    </div>
+    <div class="pick-card">
+      <div class="pick-rank">04</div>
+      <div class="pick-name">Fox Racing Rampage Helmet</div>
+      <div class="pick-desc">Top-rated ATV helmet. DOT & ECE certified, great ventilation.</div>
+      <div class="pick-price">From $149</div>
+      <a href="#" class="pick-cta">Check Price →</a>
+    </div>
+  </div>
+</section>
+
+<div class="trust-bar">
+  <div class="trust-item"><div class="trust-icon-wrap">🧪</div><div><div class="trust-label">Hands-On Tested</div><div class="trust-sub">Every product is tested in the real world</div></div></div>
+  <div class="trust-item"><div class="trust-icon-wrap">🚫</div><div><div class="trust-label">No Paid Reviews</div><div class="trust-sub">We buy our own gear — no freebies</div></div></div>
+  <div class="trust-item"><div class="trust-icon-wrap">🔗</div><div><div class="trust-label">Affiliate Disclosed</div><div class="trust-sub">We earn a commission, at no cost to you</div></div></div>
+  <div class="trust-item"><div class="trust-icon-wrap">📍</div><div><div class="trust-label">Oklahoma Based</div><div class="trust-sub">We ride and live this stuff every day</div></div></div>
+</div>
+
+<section class="newsletter-section">
+  <div class="newsletter-text">
+    <h2>Get the Best Deals <em>First</em></h2>
+    <p>Weekly roundup of top gear deals, new reviews, and trail tips — straight to your inbox. No spam, ever.</p>
+  </div>
+  <form class="newsletter-form" onsubmit="return false;">
+    <input type="email" placeholder="Your email address">
+    <button type="submit">Subscribe</button>
+  </form>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo">Wildflower <span>Tested</span></div>
+      <p>Honest outdoor and home gear reviews from real women enthusiasts. We test everything ourselves so you can buy with confidence.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Categories</h4>
+      <ul>
+        <li><a href="#">ATVs & 4-Wheelers</a></li>
+        <li><a href="#">Side-By-Sides</a></li>
+        <li><a href="#">Camping Gear</a></li>
+        <li><a href="#">Home Goods</a></li>
+        <li><a href="#">Tools & Accessories</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Popular Reviews</h4>
+      <ul>
+        <li><a href="#">Best UTVs 2025</a></li>
+        <li><a href="#">Top Coolers Ranked</a></li>
+        <li><a href="#">ATV Helmets Guide</a></li>
+        <li><a href="#">Pellet Grill Shootout</a></li>
+        <li><a href="#">Best Winches Under $300</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Site</h4>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Affiliate Disclosure</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Wildflower Tested. All rights reserved.</p>
+    <p class="disclosure">Affiliate Disclosure: Wildflower Tested participates in the Amazon Associates Program and other affiliate programs. We earn a small commission when you purchase through our links, at no additional cost to you.</p>
+  </div>
+</footer>
+
 </body>
 </html>
