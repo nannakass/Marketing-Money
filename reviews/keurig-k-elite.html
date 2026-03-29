@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Keurig K-Elite Review: The Single-Serve Machine That Finally Does It All — Wildflower Tested</title>
+<meta name="description" content="Honest Keurig K-Elite review after 4+ weeks of daily use. Strong brew, iced coffee, temperature control — here's what a real Oklahoma woman thinks.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --rose:       #C9747A;
+    --rose-dark:  #a05860;
+    --rose-light: #F7EAEB;
+    --rose-mid:   #E8C4C7;
+    --sage:       #7A9E87;
+    --sage-dark:  #567566;
+    --sage-light: #EDF4EF;
+    --gold:       #C4A35A;
+    --gold-light: #F7F1E3;
+    --cream:      #FAF7F2;
+    --warm-white: #FFFFFF;
+    --ink:        #2E2926;
+    --ink-mid:    #5C5450;
+    --ink-muted:  #9A928E;
+    --border:     rgba(46,41,38,0.1);
+  }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.6;
+  }
+
+  a { text-decoration: none; color: inherit; }
+
+  /* ── Nav ── */
+  nav {
+    background: var(--warm-white);
+    border-bottom: 1px solid var(--border);
+    padding: 0 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--ink);
+  }
+
+  .logo span { color: var(--rose); font-style: italic; }
+
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+
+  .nav-links a {
+    color: var(--ink-mid);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--rose); }
+
+  .nav-cta {
+    background: var(--rose);
+    color: var(--warm-white) !important;
+    padding: 9px 20px;
+    border-radius: 30px;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--rose-dark) !important; }
+
+  /* ── Review Layout ── */
+  .review-page {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 4rem 2rem 5rem;
+  }
+
+  /* ── Breadcrumb ── */
+  .breadcrumb {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .breadcrumb a { color: var(--rose); transition: opacity 0.2s; }
+  .breadcrumb a:hover { opacity: 0.75; }
+
+  /* ── FTC Disclosure ── */
+  .ftc-disclosure {
+    background: var(--gold-light);
+    border: 1px solid rgba(196,163,90,0.3);
+    border-radius: 8px;
+    padding: 12px 18px;
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--ink-mid);
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+  }
+
+  /* ── Review Header ── */
+  .review-header { margin-bottom: 2.5rem; }
+
+  .review-category-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 1rem;
+  }
+
+  .review-header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(34px, 5vw, 52px);
+    font-weight: 600;
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 0.6rem;
+  }
+
+  .review-header h1 em { font-style: italic; color: var(--rose); }
+
+  .review-subtitle {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--ink-mid);
+    margin-bottom: 1.25rem;
+    line-height: 1.6;
+  }
+
+  .review-meta-row {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .stars-large { color: var(--gold); font-size: 22px; letter-spacing: 3px; }
+  .rating-text { font-size: 13px; font-weight: 600; color: var(--ink-mid); }
+  .review-byline { font-size: 12px; font-weight: 400; color: var(--ink-muted); }
+
+  /* ── Tested Badge ── */
+  .tested-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--sage-light);
+    border: 1px solid rgba(122,158,135,0.25);
+    border-radius: 30px;
+    padding: 6px 14px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: var(--sage-dark);
+    text-transform: uppercase;
+  }
+
+  /* ── Product Hero Card ── */
+  .product-hero-card {
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    margin-bottom: 2.5rem;
+  }
+
+  .product-image-area {
+    background: linear-gradient(135deg, var(--rose-light) 0%, #EDD5D7 100%);
+    height: 240px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 96px;
+  }
+
+  .product-card-body {
+    padding: 1.75rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .product-card-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+
+  .product-card-sub { font-size: 13px; font-weight: 300; color: var(--ink-muted); }
+
+  .btn-primary {
+    background: var(--rose);
+    color: var(--warm-white);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 14px 30px;
+    border-radius: 30px;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-block;
+    white-space: nowrap;
+  }
+
+  .btn-primary:hover { background: var(--rose-dark); transform: translateY(-1px); }
+
+  /* ── Specs Grid ── */
+  .specs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 2.5rem;
+  }
+
+  .spec-item {
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+  }
+
+  .spec-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 4px;
+  }
+
+  .spec-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  /* ── Review Body ── */
+  .review-intro {
+    font-size: 17px;
+    font-weight: 300;
+    color: var(--ink-mid);
+    line-height: 1.9;
+    margin-bottom: 2.5rem;
+    border-left: 3px solid var(--rose-mid);
+    padding-left: 1.25rem;
+  }
+
+  .review-section { margin-bottom: 2.5rem; }
+
+  .review-section h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 1rem;
+  }
+
+  .review-section p {
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--ink-mid);
+    line-height: 1.9;
+    margin-bottom: 1rem;
+  }
+
+  .review-section p:last-child { margin-bottom: 0; }
+
+  /* ── Pros List ── */
+  .pros-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .pros-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--ink-mid);
+    line-height: 1.65;
+  }
+
+  .pros-list li strong {
+    font-weight: 600;
+    color: var(--ink);
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  .pros-check {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--sage-light);
+    border: 1px solid rgba(122,158,135,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    color: var(--sage-dark);
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* ── Bonus Feature ── */
+  .bonus-card {
+    background: var(--rose-light);
+    border: 1px solid var(--rose-mid);
+    border-radius: 12px;
+    padding: 1.5rem 1.75rem;
+    margin-bottom: 2.5rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .bonus-icon { font-size: 28px; flex-shrink: 0; }
+
+  .bonus-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+
+  .bonus-card p {
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--ink-mid);
+    line-height: 1.7;
+  }
+
+  /* ── Things to Know ── */
+  .things-card {
+    background: var(--sage-light);
+    border: 1px solid rgba(122,158,135,0.25);
+    border-radius: 12px;
+    padding: 1.75rem 2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .things-card h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 1rem;
+  }
+
+  .things-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .things-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--ink-mid);
+    line-height: 1.65;
+  }
+
+  .things-list li strong {
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .things-flag {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: rgba(122,158,135,0.2);
+    border: 1px solid rgba(122,158,135,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    color: var(--sage-dark);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* ── Verdict Card ── */
+  .verdict-card {
+    background: var(--ink);
+    border-radius: 14px;
+    padding: 2.5rem;
+    margin-bottom: 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .verdict-card::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 220px; height: 220px;
+    border-radius: 50%;
+    background: var(--rose);
+    opacity: 0.07;
+    pointer-events: none;
+  }
+
+  .verdict-card h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--warm-white);
+    margin-bottom: 1rem;
+  }
+
+  .verdict-card p {
+    font-size: 15px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.9;
+    margin-bottom: 1.5rem;
+  }
+
+  .verdict-rating {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 1.75rem;
+  }
+
+  .stars-verdict { color: var(--gold); font-size: 26px; letter-spacing: 3px; }
+
+  .rating-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--gold);
+    letter-spacing: 1px;
+  }
+
+  .btn-cta-large {
+    display: inline-block;
+    background: var(--rose);
+    color: var(--warm-white);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 16px 36px;
+    border-radius: 30px;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .btn-cta-large:hover { background: var(--rose-dark); transform: translateY(-1px); }
+
+  /* ── Divider ── */
+  .review-divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 2.5rem 0;
+  }
+
+  /* ── Footer ── */
+  footer { background: var(--ink); color: rgba(255,255,255,0.5); padding: 3.5rem 4rem 2rem; }
+
+  .footer-grid {
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 3rem; margin-bottom: 3rem;
+  }
+
+  .footer-brand .logo { display: block; margin-bottom: 1rem; color: var(--warm-white); }
+  .footer-brand p { font-size: 13px; font-weight: 300; line-height: 1.8; max-width: 260px; }
+
+  .footer-col h4 {
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 2.5px; text-transform: uppercase;
+    color: var(--rose-mid); margin-bottom: 1.25rem;
+  }
+
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+
+  .footer-col a {
+    font-size: 13px; font-weight: 300;
+    color: rgba(255,255,255,0.45); transition: color 0.2s;
+  }
+
+  .footer-col a:hover { color: var(--rose-mid); }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.07);
+    padding-top: 1.5rem;
+    display: flex; align-items: flex-start;
+    justify-content: space-between; gap: 2rem;
+    font-size: 12px; flex-wrap: wrap;
+  }
+
+  .disclosure {
+    font-size: 11px; font-weight: 300;
+    color: rgba(255,255,255,0.28); max-width: 580px; line-height: 1.7;
+  }
+
+  @media (max-width: 960px) {
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .nav-links { display: none; }
+    .specs-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 600px) {
+    nav { padding: 0 1.5rem; }
+    .review-page { padding: 2.5rem 1.5rem 4rem; }
+    footer { padding-left: 1.5rem; padding-right: 1.5rem; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .product-card-body { flex-direction: column; align-items: flex-start; }
+    .verdict-card { padding: 1.75rem; }
+    .specs-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="logo">Wildflower <span>Tested</span></a>
+  <ul class="nav-links">
+    <li><a href="/">ATVs & UTVs</a></li>
+    <li><a href="/">Home Goods</a></li>
+    <li><a href="/">Outdoor Gear</a></li>
+    <li><a href="/">Best Picks</a></li>
+    <li><a href="https://www.amazon.com/Keurig-K-Elite-Temperature-Capability-Programmable/dp/B078NN17K3?linkCode=ll2&tag=nannasbiz-20&linkId=fa0915cc8bf51c44828566dea4197bb9&language=en_US&ref_=as_li_ss_tl" class="nav-cta" target="_blank" rel="noopener">Shop Deals</a></li>
+  </ul>
+</nav>
+
+<main class="review-page">
+
+  <div class="breadcrumb">
+    <a href="/">Home</a> › <span>Kitchen</span> › <span>Keurig K-Elite Review</span>
+  </div>
+
+  <div class="ftc-disclosure">
+    This post contains affiliate links. If you purchase through our links, we may earn a small commission at no extra cost to you.
+  </div>
+
+  <header class="review-header">
+    <span class="review-category-tag">Kitchen</span>
+    <h1>Keurig K-Elite Review: The Single-Serve Machine That <em>Finally Does It All</em></h1>
+    <p class="review-subtitle">Strong brew, iced coffee, temperature control — and it actually fits my travel mug. Here's my honest take.</p>
+    <div class="review-meta-row">
+      <span class="stars-large">★★★★★</span>
+      <span class="rating-text">4.8 / 5</span>
+      <span class="review-byline">By Wildflower Tested · Hands-on review</span>
+      <span class="tested-badge">✓ Tested 4+ Weeks</span>
+    </div>
+  </header>
+
+  <div class="product-hero-card">
+    <div class="product-image-area">☕</div>
+    <div class="product-card-body">
+      <div>
+        <div class="product-card-name">Keurig K-Elite Single Serve Coffee Maker</div>
+        <div class="product-card-sub">Brushed Slate · Strong Brew · Iced Coffee · ~$149–$169</div>
+      </div>
+      <a href="https://www.amazon.com/Keurig-K-Elite-Temperature-Capability-Programmable/dp/B078NN17K3?linkCode=ll2&tag=nannasbiz-20&linkId=fa0915cc8bf51c44828566dea4197bb9&language=en_US&ref_=as_li_ss_tl" target="_blank" rel="noopener sponsored" class="btn-primary">Check Price on Amazon →</a>
+    </div>
+  </div>
+
+  <div class="specs-grid">
+    <div class="spec-item">
+      <div class="spec-label">Brew Sizes</div>
+      <div class="spec-value">4, 6, 8, 10, 12 oz</div>
+    </div>
+    <div class="spec-item">
+      <div class="spec-label">Reservoir</div>
+      <div class="spec-value">75 oz (~8 cups)</div>
+    </div>
+    <div class="spec-item">
+      <div class="spec-label">Special Modes</div>
+      <div class="spec-value">Strong + Iced</div>
+    </div>
+    <div class="spec-item">
+      <div class="spec-label">Temperature</div>
+      <div class="spec-value">187–192°F</div>
+    </div>
+    <div class="spec-item">
+      <div class="spec-label">Mug Clearance</div>
+      <div class="spec-value">Up to 7.2"</div>
+    </div>
+    <div class="spec-item">
+      <div class="spec-label">Auto On/Off</div>
+      <div class="spec-value">Yes, programmable</div>
+    </div>
+  </div>
+
+  <p class="review-intro">
+    Okay, y'all — I have tried more coffee makers than I care to admit. Counter space in my Oklahoma kitchen is precious, and I do not have room for a machine that can't pull its weight. So when I finally got my hands on the Keurig K-Elite, I was cautiously hopeful. After using it every single morning (and a few afternoons, let's be honest) for over a month, I'm ready to give you the full rundown. Spoiler: this thing has earned a permanent spot on my counter — and not just because it looks pretty, though that brushed slate finish is genuinely gorgeous.
+  </p>
+
+  <div class="review-section">
+    <h2>What I Love About It</h2>
+    <ul class="pros-list">
+      <li>
+        <div class="pros-check">✓</div>
+        <div><strong>The Iced Coffee button is a game-changer</strong> — brews extra strong over ice so it doesn't taste watered down. That alone was almost worth the price of admission.</div>
+      </li>
+      <li>
+        <div class="pros-check">✓</div>
+        <div><strong>Strong Brew mode is legit strong</strong> — steeps longer, noticeably bolder. My husband has been stealing my coffee ever since I got this thing, which honestly says it all.</div>
+      </li>
+      <li>
+        <div class="pros-check">✓</div>
+        <div><strong>Temperature control that actually matters</strong> — I can drink it right away instead of waiting for it to cool down. Small thing, big difference in the morning rush.</div>
+      </li>
+      <li>
+        <div class="pros-check">✓</div>
+        <div><strong>75-oz reservoir = fewer refills</strong> — I refill maybe twice a week. It pulls right out for easy sink filling, no awkward maneuvering required.</div>
+      </li>
+      <li>
+        <div class="pros-check">✓</div>
+        <div><strong>It finally fits my tall travel mug</strong> — the removable drip tray gives you 7.2 inches of clearance. Hallelujah. This was a dealbreaker with my last machine.</div>
+      </li>
+      <li>
+        <div class="pros-check">✓</div>
+        <div><strong>Auto on is a small luxury I can't live without now</strong> — by the time I'm downstairs in my robe, it's ready and waiting. Total game changer on school mornings.</div>
+      </li>
+    </ul>
+  </div>
+
+  <hr class="review-divider">
+
+  <div class="bonus-card">
+    <div class="bonus-icon">💧</div>
+    <div>
+      <h3>Bonus Feature I Use Every Day</h3>
+      <p>Hot water on demand. I use it for instant oatmeal and herbal tea constantly. No waiting for a kettle to boil — just lift the handle, press a button, done. If you're a tea drinker too, this is genuinely useful.</p>
+    </div>
+  </div>
+
+  <div class="things-card">
+    <h2>Things to Know Before You Buy</h2>
+    <ul class="things-list">
+      <li>
+        <div class="things-flag">!</div>
+        <div><strong>K-Cup pods add up cost-wise</strong> — roughly 60 cents to $1.15 each. It's compatible with the My K-Cup reusable filter (sold separately) so you can use your own grounds and save a good chunk of money.</div>
+      </li>
+      <li>
+        <div class="things-flag">!</div>
+        <div><strong>No built-in milk frother</strong> — if you're a latte person, you'll need a separate frother. Totally fine for me, I just use a cheap handheld one.</div>
+      </li>
+      <li>
+        <div class="things-flag">!</div>
+        <div><strong>Descaling reminders pop up regularly</strong> — plan about 45 minutes every few months to keep it running its best. Not a dealbreaker, just plan for it.</div>
+      </li>
+      <li>
+        <div class="things-flag">!</div>
+        <div><strong>It's not silent</strong> — Quiet Brew is noticeably quieter than older Keurigs, but you'll still hear it from another room. Not a big deal in my house, just a heads-up.</div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="verdict-card">
+    <h2>The Verdict</h2>
+    <p>The Keurig K-Elite is the coffee maker I didn't know I needed until I had it. If you drink one to three cups a day and want the flexibility to go from hot to iced, bold to mild — all without thinking too hard about it — this is your machine. Priced fairly for everything it delivers, and it looks good doing it.</p>
+    <div class="verdict-rating">
+      <span class="stars-verdict">★★★★★</span>
+      <span class="rating-label">4.8 / 5 — Highly Recommended</span>
+    </div>
+    <a href="https://www.amazon.com/Keurig-K-Elite-Temperature-Capability-Programmable/dp/B078NN17K3?linkCode=ll2&tag=nannasbiz-20&linkId=fa0915cc8bf51c44828566dea4197bb9&language=en_US&ref_=as_li_ss_tl" target="_blank" rel="noopener sponsored" class="btn-cta-large">👉 Check the Latest Price on Amazon</a>
+  </div>
+
+</main>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="/" class="logo">Wildflower <span>Tested</span></a>
+      <p>Honest outdoor and home gear reviews from real women enthusiasts. We test everything ourselves so you can buy with confidence.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Categories</h4>
+      <ul>
+        <li><a href="/">ATVs & 4-Wheelers</a></li>
+        <li><a href="/">Side-By-Sides</a></li>
+        <li><a href="/">Camping Gear</a></li>
+        <li><a href="/">Home Goods</a></li>
+        <li><a href="/">Tools & Accessories</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Popular Reviews</h4>
+      <ul>
+        <li><a href="/">Best UTVs 2025</a></li>
+        <li><a href="/">Top Coolers Ranked</a></li>
+        <li><a href="/">ATV Helmets Guide</a></li>
+        <li><a href="/">Pellet Grill Shootout</a></li>
+        <li><a href="/">Best Winches Under $300</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Site</h4>
+      <ul>
+        <li><a href="/">About Us</a></li>
+        <li><a href="/">Contact</a></li>
+        <li><a href="/">Privacy Policy</a></li>
+        <li><a href="/">Affiliate Disclosure</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Wildflower Tested. All rights reserved.</p>
+    <p class="disclosure">Affiliate Disclosure: Wildflower Tested participates in the Amazon Associates Program and other affiliate programs. We earn a small commission when you purchase through our links, at no additional cost to you.</p>
+  </div>
+</footer>
+
+</body>
+</html>
