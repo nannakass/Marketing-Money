@@ -1,0 +1,9 @@
+{
+  "name": "nannas-home-finds-updater",
+  "version": "1.0.0",
+  "description": "Fetches Amazon bestsellers and updates Nanna's Home Finds site",
+  "main": "update-best-finds.js",
+  "dependencies": {
+    "paapi5-nodejs-sdk": "^1.0.0"
+  }
+}
